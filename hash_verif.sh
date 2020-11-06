@@ -30,8 +30,8 @@ declare -r TRUE=0  # Read-only variable, i.e., a constant.
 declare -r FALSE=1 # Read-only variable, i.e., a constant.
 
 declare -r nb_param=$#                           # Nombre d'argument(s) fourni(s) au script.
-declare -r param_1="$1"                          # 1er argument fourni
-declare -r param_2="$2"                          # 1er argument fourni
+declare -r param_1="$1"                          # 1er argument fourni - Ici ce sera le type de hash
+declare -r param_2="$2"                          # 2ème argument fourni - Ici ce sera le fichier à hasher
 declare -r nom_script=$0                         # Nom du script
 declare -r script_dir=$(cd ${0%/*} && pwd -P)    # Chemin complet d'accès du script
 declare -r script_dir_rel=$(dirname $0)          # Chemin d'accès relatif du script
@@ -136,7 +136,9 @@ elif [ $nb_param -ne 2 ]; then
     exit
 else
     
-    
+    # On affiche le nom du fichier à tester (pour être sur du hash à utiliser)
+    echo "Le fichier à vérifier est : €{param_2}"
+    echo
     # On récupère le hash de comparaison :
     echo "Entrez le hash de comparaison (faire un copier/coller): "
     read hash_origin
