@@ -137,7 +137,7 @@ elif [ $nb_param -ne 2 ]; then
 else
     
     # On affiche le nom du fichier à tester (pour être sur du hash à utiliser)
-    echo "Le fichier à vérifier est : €{param_2}"
+    echo "Le fichier à vérifier est : ${param_2}"
     echo
     # On récupère le hash de comparaison :
     echo "Entrez le hash de comparaison (faire un copier/coller): "
